@@ -4,7 +4,7 @@ var L05;
     window.addEventListener("load", handleLoad);
     let form;
     async function handleLoad(_event) {
-        let response = await fetch("Data.json");
+        let response = await fetch("data.json");
         let offer = await response.text();
         let data = JSON.parse(offer);
         L05.generateContent(data);
