@@ -28,7 +28,7 @@
             "stärke": 5
         },
         {
-            "name": "König",
+            "name": "Koenig",
             "gewicht": 0,
             "stärke": 2
         },
@@ -68,7 +68,7 @@
     ],
     "Geschlecht": [
         {
-            "name": "Männlich",
+            "name": "Maennlich",
             "gewicht": 0,
             "stärke": 0
         },
