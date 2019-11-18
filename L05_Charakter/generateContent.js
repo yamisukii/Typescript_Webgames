@@ -58,7 +58,7 @@ var L05;
             select.name = _category;
             option.textContent = entry.name;
             group.appendChild(select);
-            //select.appendChild(emptyOption);
+            select.appendChild(emptyOption);
             select.appendChild(option);
         }
         return group;

@@ -16,7 +16,7 @@ var L05;
         form.addEventListener("change", handleChange);
     }
     async function sendOrder(_event) {
-        console.log(_event);
+        // console.log(_event);
         console.log("send");
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
@@ -37,31 +37,33 @@ var L05;
             console.log(selector);
             let item = document.querySelector(selector);
             console.log(item);
-            let itemGewicht = Number(item.getAttribute("gewicht"));
-            let itemStärke = Number(item.getAttribute("stärke"));
-            console.log(entry[0]);
-            switch (entry[0]) {
-                case "name":
-                    order.innerHTML += "Name: " + item.value;
-                case "geschlecht":
-                    order.innerHTML += item.value + "</br>";
-                    break;
-                case "Rasse":
-                    order.innerHTML += item.value + " " + itemGewicht + " kg" + " / Stärke" + itemStärke + "</br>";
-                    break;
-                case "Klasse":
-                    order.innerHTML += item.value + "     " + "  Stärke" + itemStärke + "</br>";
-                    break;
-                case "Waffen":
-                    order.innerHTML += item.value + " " + itemGewicht + " kg" + " / Stärke" + itemStärke + "</br>";
-                    break;
-                default:
-                    order.innerHTML += item.innerHTML;
-                    break;
+            if (item) {
+                let itemGewicht = Number(item.getAttribute("gewicht"));
+                let itemStärke = Number(item.getAttribute("stärke"));
+                // console.log(entry[0]);
+                switch (entry[0]) {
+                    case "name":
+                        order.innerHTML += "Name: " + item.value;
+                    case "geschlecht":
+                        order.innerHTML += item.value + "</br>";
+                        break;
+                    case "Rasse":
+                        order.innerHTML += item.value + " " + itemGewicht + " kg" + " / Stärke" + itemStärke + "</br>";
+                        break;
+                    case "Klasse":
+                        order.innerHTML += item.value + "     " + "  Stärke" + itemStärke + "</br>";
+                        break;
+                    case "Waffen":
+                        order.innerHTML += item.value + " " + itemGewicht + " kg" + " / Stärke" + itemStärke + "</br>";
+                        break;
+                    default:
+                        order.innerHTML += item.innerHTML;
+                        break;
+                }
+                // console.log(item);
+                gewicht += itemGewicht;
+                stärke += itemStärke;
             }
-            // console.log(item);
-            gewicht += itemGewicht;
-            stärke += itemStärke;
         }
         // console.groupEnd();
         order.innerHTML += "<p><strong>Total:  " + gewicht.toFixed(2) + " kg" + "</br>";
