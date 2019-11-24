@@ -1,0 +1,55 @@
+* {
+	display: block;
+}
+
+body {
+	display: grid;
+	grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    
+}
+
+
+div {
+    display: flex;
+}
+input[type="radio"],  input[type="checkbox"], label {
+    float: left;
+    display: inline;
+    
+}
+label::after {
+	content:"";
+	display: block;
+}
+head {
+	display: none;
+}
+input:invalid {
+	background: #F0C060;
+}
+input:valid {
+	background: white;
+}
+input:required {
+	background: rgb(132, 136, 104);
+}
+fieldset {
+	width: auto;
+
+}
+#output {
+	width: fit-content;
+    
+    
+}
+datalist option {
+	display: inline;	
+}
+textarea {
+	width: 100%;
+}
+h1 {
+	grid-column: span 2;
+	text-align: center;
+}

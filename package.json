@@ -1,0 +1,23 @@
+{
+  "name": "milchstrasse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "tslint": "^5.20.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StfnMerdi/EIA2.git"
+  },
+  "author": "Stefan Merdian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StfnMerdi/EIA2/issues"
+  },
+  "homepage": "https://github.com/StfnMerdi/EIA2#readme"
+}

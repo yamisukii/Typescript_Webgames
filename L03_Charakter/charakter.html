@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="charakter.css" type="text/css" media="screen" />
+    <script src="charakter.js" type="text/javascript" charset="utf-8"></script>
+    <title>Charakter</title>
+</head>
+
+<body>
+    <h1>Charakter</h1>
+    <fieldset id="look">
+        <h2>Aussehehn</h2>
+        Name des Charakter
+        <input type="text" name="text" placeholder="Name" required />
+        <hr />
+        <div> Geschlecht
+            <input type="radio" name="geschlecht" value="Mänlich" id="men" />
+            <label for="men">Mänlich</label>
+            <input type="radio" name="geschlecht" value="Weiblich" id="women" />
+            <label for="women">Weiblich</label>
+        </div>
+        <hr />
+        Geburtsdatum
+        <input type="date" name="Date" />
+        <hr />
+        Rasse
+        <input type="text" name="rasse" list="options" placeholder="Welche Rasse?" />
+        <datalist id="Rasse">
+        </datalist>
+        <hr />
+        Klasse
+        <input type="text" name="Klasse" list="options" placeholder="Welche Klasse?" />
+        <datalist id="Klasse">
+        </datalist>
+
+        <hr />
+        Augenfarbe
+        <input type="color" name="Color" placeholder="red" id="color" value="#ff0000">
+
+    </fieldset>
+    
+    <fieldset id="output">
+            <h2>Your Charakter</h2>
+    </fieldset>
+    <fieldset id="werte">
+        <h2>Pimp your Char</h2>
+        <div> Fitness
+            <input type="radio" name="Fitness" value="Schlank" id="Schlank" />
+            <label for="Schlank">Schlank</label>
+            <input type="radio" name="Fitness" value="Normal" id="Normal" />
+            <label for="Normal">Normal</label>
+            <input type="radio" name="Fitness" value="Muskulös" id="Normal" />
+            <label for="Muskulös">Muskulös</label>
+        </div>
+        <hr />
+        Rüstung
+        <select name="Rüstung" id="Rasse"></select>
+        <hr />
+        Waffen
+        <input type="text" name="Bewaffnung" list="options" placeholder="Welche Waffe?" />
+        <datalist id="Waffen">
+        </datalist>
+        <hr />
+        Fähigkeit
+        <input type="text" name="Fähigkeit" list="options" placeholder="Welche Fähigkeit?" />
+        <datalist id="Fähigkeit">
+        </datalist>
+        <hr />
+        <div> Aura
+            <input type="radio" name="geschlecht" value="Mänlich" id="Gut" />
+            <label for="Gut">Gut</label>
+            <input type="radio" name="geschlecht" value="Weiblich" id="böse" />
+            <label for="böse">Böse</label>
+        </div>
+
+
+
+    </fieldset>
+
+</body>
+
+</html>
