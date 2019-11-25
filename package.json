@@ -2,13 +2,13 @@
   "name": "milchstrasse",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "charakter.js",
   "dependencies": {
     "tslint": "^5.20.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server.js"
+    "start": "node C:/Users/stefa/Documents/4. Semster/EIA2ZRepistory/L06_Server/server.js"
   },
   "repository": {
     "type": "git",
