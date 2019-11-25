@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node C:/Users/stefa/Documents/4. Semster/EIA2/Repistory/L06_Server/server.js"
+    "start": "node C:/Users/stefa/Documents/4.Semster/EIA2/Repistory/L06_Server/server.js"
   },
   "repository": {
     "type": "git",
