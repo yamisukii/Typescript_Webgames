@@ -1,14 +1,14 @@
 "use strict";
-var L06_Server;
-(function (L06_Server) {
+var L07_Mongo;
+(function (L07_Mongo) {
     window.addEventListener("load", handleLoad);
     let form;
-    let url = "https://milchstrasse.herokuapp.com/";
+    let url = "http://localhost:5002";
     async function handleLoad(_event) {
         let response = await fetch("data.json");
         let offer = await response.text();
         let data = JSON.parse(offer);
-        L06_Server.generateContent(data);
+        L07_Mongo.generateContent(data);
         form = document.querySelector("form");
         let submit = document.querySelector("button[type=button]");
         let reset = document.querySelector("button[type=reset]");
@@ -75,5 +75,5 @@ var L06_Server;
         let order = document.querySelector("div#order");
         order.innerHTML = "No Order";
     }
-})(L06_Server || (L06_Server = {}));
+})(L07_Mongo || (L07_Mongo = {}));
 //# sourceMappingURL=charakter.js.map
