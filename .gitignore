@@ -2,3 +2,4 @@ MongoDB
 .vscode
 X_Database
 node_modules
+package.json
