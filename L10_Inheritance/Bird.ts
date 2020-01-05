@@ -1,48 +1,19 @@
 namespace L10_Inheritance {
-    export class Bird {
-        position: Vektor;
-        velocity: Vektor;
-        size: number;
-
-
+    export class Bird extends Moveable {
+        
+        
         constructor() {
-            // console.log("Snow Constructor");
-            let x: number = 1000 * Math.random();
-            let y: number = 700 * Math.random();
-
-            this.position = new Vektor(x, y);
+            super();
 
             let xBird: number = (3 * Math.random()) + 1;
 
             this.velocity = new Vektor(xBird, 0);
-            
+
 
         }
-        move(): void {
-            // console.log("Move");
-            this.position.add(this.velocity);
 
-            if (this.position.x > crc2.canvas.width) {
-                this.position.x -= crc2.canvas.width;
-                this.position.y = crc2.canvas.height * Math.random();
 
-            }
-            if (this.position.y > crc2.canvas.height) {
-                this.position.y -= crc2.canvas.height;
-                this.position.x = crc2.canvas.width * Math.random();
 
-            }
-            if (this.velocity.x > 2 && this.position.x > crc2.canvas.width / 2 ) {
-                let yVelo: number = (2 * Math.random()) + 1;
-                this.velocity.y = yVelo ;
-            }
-        }
-
-        changeDirection(): void {
-            this.position.add(this.velocity);
-            let xVelo: number = (4 * Math.random()) + 1;
-            this.velocity.x = -(xVelo);
-        }
         draw(): void {
 
             crc2.save();

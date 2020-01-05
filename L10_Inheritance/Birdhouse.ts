@@ -7,7 +7,7 @@ namespace L10_Inheritance {
         let x: number = (Math.random() - 0.5) * _size.x;
         let y: number = -(Math.random() * _size.y);
         crc2.translate(x, y);
-        crc2.scale(8, 8);
+        crc2.scale(7, 8);
         crc2.beginPath();
         crc2.moveTo(0, 0);
         crc2.lineTo(4, 0);

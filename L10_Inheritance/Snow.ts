@@ -1,31 +1,16 @@
 namespace L10_Inheritance {
-    export class Snow {
-        position: Vektor;
-        velocity: Vektor;
-        size: number;
+    export class Snow extends Moveable {
+       
         gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, 5);
 
         constructor() {
-            // console.log("Snow Constructor");
-            let x: number = 1000 * Math.random();
-            let y: number = 700 * Math.random();
-
-            this.position = new Vektor(x, y);
-
+            super();
+           
             let ySnow: number = (3 * Math.random()) + 1;
             this.velocity = new Vektor(0, ySnow);
 
         }
-        move(): void {
-            // console.log("Move");
-            this.position.add(this.velocity);
-
-            if (this.position.y > crc2.canvas.height) {
-                this.position.y -= crc2.canvas.height;
-                this.position.x = crc2.canvas.width * Math.random();
-
-            }
-        }
+        
         draw(): void {
             
             crc2.beginPath();

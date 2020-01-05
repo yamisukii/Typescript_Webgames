@@ -1,6 +1,6 @@
 "use strict";
-var L09_Klassen;
-(function (L09_Klassen) {
+var L10_Inheritance;
+(function (L10_Inheritance) {
     class Vektor {
         constructor(_x, _y) {
             this.set(_x, _y);
@@ -24,6 +24,6 @@ var L09_Klassen;
             this.scale(length);
         }
     }
-    L09_Klassen.Vektor = Vektor;
-})(L09_Klassen || (L09_Klassen = {}));
+    L10_Inheritance.Vektor = Vektor;
+})(L10_Inheritance || (L10_Inheritance = {}));
 //# sourceMappingURL=Vektor.js.map

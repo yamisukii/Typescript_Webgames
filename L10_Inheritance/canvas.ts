@@ -8,12 +8,12 @@ namespace L10_Inheritance {
 
 
     export let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
-    
+
     export let crc2: CanvasRenderingContext2D;
     let golden: number = 0.62;
 
-    let snowflakes: Snow[] = [];
-    let birds: Bird[] = [];
+    let moveables: Moveable[] = [];
+    
 
 
     function handleLoad(_event: Event): void {
@@ -32,6 +32,7 @@ namespace L10_Inheritance {
         drawSun({ x: 800, y: 105 });
         drawCloud({ x: 500, y: 125 }, { x: 500, y: 75 });
         drawMountain({ x: 0, y: horizon }, 75, 200, "grey", "white");
+        drawHouse({x: 600, y: 400}, {x: 100, y: 100});
         drawBirdhouse({ x: 200, y: 600 }, { x: 200, y: 100 });
         drawBird();
 
@@ -62,10 +63,10 @@ namespace L10_Inheritance {
 
         for (let i: number = 0; i < nFlakes; i++) {
             let snowflake: Snow = new Snow();
-            snowflakes.push(snowflake);
+            moveables.push(snowflake);
 
         }
-        console.log(snowflakes);
+        console.log(moveables);
 
     }
 
@@ -74,7 +75,7 @@ namespace L10_Inheritance {
 
         for (let i: number = 0; i < nBirds; i++) {
             let bird: Bird = new Bird();
-            birds.push(bird);
+            moveables.push(bird);
 
         }
     }
@@ -83,15 +84,19 @@ namespace L10_Inheritance {
 
         crc2.putImageData(_backgroundData, 0, 0);
 
-        for (let snowflake of snowflakes) {
-            snowflake.move();
-            snowflake.draw();
-            
+        for (let moveable of moveables) {
+            if (moveable instanceof Snow) {
+                moveable.move();
+                moveable.draw();
+            }
+
         }
-        for (let bird of birds) {
-            bird.move();
-            bird.draw();
-            
+        for (let moveable of moveables) {
+            if (moveable instanceof Bird) {
+                moveable.move();
+                moveable.draw();
+            }
+
         }
     }
 
