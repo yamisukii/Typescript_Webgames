@@ -18,9 +18,17 @@ var L10_Inheritance;
                 this.position.y -= L10_Inheritance.crc2.canvas.height;
                 this.position.x = L10_Inheritance.crc2.canvas.width * Math.random();
             }
-            let n = (Math.random() * 4);
-            if (this.velocity.x > 2 && this.position.x > L10_Inheritance.crc2.canvas.width / n) {
-                let yVelo = (Math.random() - 0.5) * 2;
+            let yWerte = [2, 1.5, 3];
+            let n = Math.floor(Math.random() * 2.5);
+            if (this.velocity.x > 2 && this.position.x > L10_Inheritance.crc2.canvas.width / 1.5) {
+                let s = Math.random() - 0.5;
+                if (s < 0) {
+                    s = -1;
+                }
+                if (s > 0) {
+                    s = 1;
+                }
+                let yVelo = yWerte[n] * s;
                 this.velocity.y = yVelo;
             }
         }
