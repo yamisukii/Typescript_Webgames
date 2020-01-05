@@ -55,8 +55,6 @@ var L10_Inheritance;
                 moveable.move();
                 moveable.draw();
             }
-        }
-        for (let moveable of moveables) {
             if (moveable instanceof L10_Inheritance.Bird) {
                 moveable.move();
                 moveable.draw();

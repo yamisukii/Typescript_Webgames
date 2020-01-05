@@ -13,7 +13,7 @@ namespace L10_Inheritance {
     let golden: number = 0.62;
 
     let moveables: Moveable[] = [];
-    
+
 
 
     function handleLoad(_event: Event): void {
@@ -32,7 +32,7 @@ namespace L10_Inheritance {
         drawSun({ x: 800, y: 105 });
         drawCloud({ x: 500, y: 125 }, { x: 500, y: 75 });
         drawMountain({ x: 0, y: horizon }, 75, 200, "grey", "white");
-        drawHouse({x: 600, y: 400}, {x: 100, y: 100});
+        drawHouse({ x: 600, y: 400 }, { x: 100, y: 100 });
         drawBirdhouse({ x: 200, y: 600 }, { x: 200, y: 100 });
         drawBird();
 
@@ -89,9 +89,6 @@ namespace L10_Inheritance {
                 moveable.move();
                 moveable.draw();
             }
-
-        }
-        for (let moveable of moveables) {
             if (moveable instanceof Bird) {
                 moveable.move();
                 moveable.draw();
