@@ -9,6 +9,7 @@ namespace L09_Klassen {
             // console.log("Snow Constructor");
             let x: number = 1000 * Math.random();
             let y: number = 700 * Math.random();
+            
 
             this.position = new Vektor(x, y);
 
