@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node https://github.com/StfnMerdi/EIA2/blob/master/Endabgabe/server.js"
+    "start": "node https://github.com/StfnMerdi/EIA2/Endabgabe/server.js"
   },
   "repository": {
     "type": "git",
