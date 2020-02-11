@@ -17,8 +17,11 @@ namespace endabgabe {
         let horizon: number = golden * crc2.canvas.height;
 
         let sunPosition: Vector = new Vector(600, 100);
+        let birdhousePosition: Vector = new Vector(200, 400);
+        let housePosition: Vector = new Vector(500, 300);
         let cloudPosition: Vector = new Vector(400, 100);
         let cloudSize: Vector = new Vector(300, 50);
+        let houseSize: Vector = new Vector(200, 50);
         let mountainPosition: Vector = new Vector(0, horizon);
 
 
@@ -26,6 +29,8 @@ namespace endabgabe {
         drawCloud(cloudPosition, cloudSize);
         drawMountainBack(mountainPosition, 100, 250);
         drawMountain(mountainPosition, 50, 120);
+        drawBirdhouse(birdhousePosition, houseSize);
+        drawHouse(housePosition, houseSize);
 
 
 
@@ -144,6 +149,70 @@ namespace endabgabe {
         crc2.restore();
 
 
+
+    }
+    export function drawBirdhouse(_position: Vector, _size: Vector): void {
+
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+        let x: number = (Math.random() - 0.5) * _size.x;
+        let y: number = -(Math.random() * _size.y);
+        crc2.translate(x, y);
+        crc2.scale(7, 8);
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(4, 0);
+        crc2.lineTo(4, -10);
+        crc2.lineTo(10, -10);
+        crc2.lineTo(10, -20);
+        crc2.lineTo(0, -25);
+        crc2.lineTo(-10, -20);
+        crc2.lineTo(-10, -10);
+        crc2.lineTo(-4, -10);
+        crc2.lineTo(-4, 0);
+        crc2.closePath();
+        crc2.fillStyle = "brown";
+        crc2.fill();
+
+        crc2.fillStyle = "yellow";
+        crc2.beginPath();
+        crc2.arc(0, -17, 2, 0, 2 * Math.PI);
+        crc2.fill();
+        crc2.closePath();
+        crc2.restore();
+
+    }
+    export function drawHouse(_position: Vector, _size: Vector): void {
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+        let x: number = (Math.random() - 0.5) * _size.x;
+        let y: number = -(Math.random() * _size.y);
+        crc2.translate(x, y);
+
+        crc2.fillStyle = "HSLA(170, 100%, 50%)";
+        crc2.fillRect(0, 0, 300, 150);
+
+        crc2.beginPath();
+        crc2.moveTo(-10, 0);
+        crc2.lineTo(150, -50);
+        crc2.lineTo(310, 0);
+        crc2.closePath();
+        crc2.fillStyle = "red";
+        crc2.fill();
+
+        crc2.fillStyle = "blue";
+        crc2.fillRect(20, 20, 60, 60);
+
+        crc2.fillStyle = "brown";
+        crc2.fillRect(140, 50, 50, 100);
+
+        crc2.beginPath();
+        crc2.arc(155, 85, 5, 0, 2 * Math.PI);
+        crc2.fillStyle = "yellow";
+        crc2.fill();
+
+        crc2.restore();
 
     }
     export function createSnow(_nSnow: number): void {

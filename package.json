@@ -4,8 +4,8 @@
   "description": "",
   "main": "charakter.js",
   "dependencies": {
-    "@types/mongodb": "^3.3.11",
-    "mongodb": "^3.3.5",
+    "@types/mongodb": "^3.3.16",
+    "mongodb": "^3.5.2",
     "tslint": "^5.20.0"
   },
   "devDependencies": {},

@@ -1,7 +1,7 @@
 namespace endabgabe {
     export class Food extends Moveable {
-        gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, 5);
-        radius: number = 20;
+        
+        private radius: number = 20;
         constructor() {
             super();
         }
@@ -11,7 +11,7 @@ namespace endabgabe {
             crc2.beginPath();
             crc2.save();
             crc2.translate(this.posiX, this.posiY);
-            crc2.fillStyle = this.gradient;
+            
             crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);
             crc2.fillStyle = "brown";
             crc2.fill();
@@ -27,7 +27,7 @@ namespace endabgabe {
             crc2.beginPath();
             crc2.save();
             crc2.translate(this.posiX, this.posiY);
-            crc2.fillStyle = this.gradient;
+            
             crc2.arc(0, 0, 3, 0, 2 * Math.PI);
             crc2.fillStyle = "brown";
             crc2.fill();
@@ -36,7 +36,7 @@ namespace endabgabe {
             crc2.beginPath();
             crc2.save();
             crc2.translate(this.posiX + 4, this.posiY + 4);
-            crc2.fillStyle = this.gradient;
+           
             crc2.arc(0, 0, 3, 0, 2 * Math.PI);
             crc2.fillStyle = "brown";
             crc2.fill();
@@ -44,7 +44,7 @@ namespace endabgabe {
             crc2.beginPath();
             crc2.save();
             crc2.translate(this.posiX - 4, this.posiY + 4);
-            crc2.fillStyle = this.gradient;
+            
             crc2.arc(0, 0, 3, 0, 2 * Math.PI);
             crc2.fillStyle = "brown";
             crc2.fill();

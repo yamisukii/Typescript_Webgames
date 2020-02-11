@@ -4,7 +4,6 @@ var endabgabe;
     class Food extends endabgabe.Moveable {
         constructor() {
             super();
-            this.gradient = endabgabe.crc2.createRadialGradient(0, 0, 0, 0, 0, 5);
             this.radius = 20;
         }
         draw() {
@@ -12,7 +11,6 @@ var endabgabe;
             endabgabe.crc2.beginPath();
             endabgabe.crc2.save();
             endabgabe.crc2.translate(this.posiX, this.posiY);
-            endabgabe.crc2.fillStyle = this.gradient;
             endabgabe.crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);
             endabgabe.crc2.fillStyle = "brown";
             endabgabe.crc2.fill();
@@ -26,7 +24,6 @@ var endabgabe;
             endabgabe.crc2.beginPath();
             endabgabe.crc2.save();
             endabgabe.crc2.translate(this.posiX, this.posiY);
-            endabgabe.crc2.fillStyle = this.gradient;
             endabgabe.crc2.arc(0, 0, 3, 0, 2 * Math.PI);
             endabgabe.crc2.fillStyle = "brown";
             endabgabe.crc2.fill();
@@ -34,7 +31,6 @@ var endabgabe;
             endabgabe.crc2.beginPath();
             endabgabe.crc2.save();
             endabgabe.crc2.translate(this.posiX + 4, this.posiY + 4);
-            endabgabe.crc2.fillStyle = this.gradient;
             endabgabe.crc2.arc(0, 0, 3, 0, 2 * Math.PI);
             endabgabe.crc2.fillStyle = "brown";
             endabgabe.crc2.fill();
@@ -42,7 +38,6 @@ var endabgabe;
             endabgabe.crc2.beginPath();
             endabgabe.crc2.save();
             endabgabe.crc2.translate(this.posiX - 4, this.posiY + 4);
-            endabgabe.crc2.fillStyle = this.gradient;
             endabgabe.crc2.arc(0, 0, 3, 0, 2 * Math.PI);
             endabgabe.crc2.fillStyle = "brown";
             endabgabe.crc2.fill();
