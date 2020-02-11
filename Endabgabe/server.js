@@ -6,14 +6,21 @@ const Mongo = require("mongodb");
 var endabgabe;
 (function (endabgabe) {
     let highscores;
-    let databaseURL;
-    let dbName = "dbName";
-    let dbCollection = "dbCollection";
-    databaseURL = "mongodb+srv://merdi:<password>@cluster0-mklga.mongodb.net/test?retryWrites=true&w=majority";
+    let databaseURL = "mongodb+srv://merdi:<password>@cluster0-mklga.mongodb.net/test?retryWrites=true&w=majority";
+    let dbName = "Game";
+    let dbCollection = "Highscores";
+    connectToDatabase(databaseURL);
     let port = process.env.PORT;
     if (port == undefined)
         port = 5001;
     startServer(port);
+    async function connectToDatabase(_url) {
+        let options = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect();
+        highscores = mongoClient.db(dbName).collection(dbCollection);
+        console.log("Database connection ", highscores != undefined);
+    }
     function startServer(_port) {
         let server = HTTP.createServer();
         console.log(_port);
@@ -32,15 +39,9 @@ var endabgabe;
             // }
             let jsonString = JSON.stringify(url.query);
             _response.write(jsonString);
+            // storeHighscores(url.query);
         }
         _response.end();
-    }
-    async function connectToDatabase(_url) {
-        let options = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient = new Mongo.MongoClient(_url, options);
-        await mongoClient.connect();
-        highscores = mongoClient.db(dbName).collection(dbCollection);
-        console.log("Database connection ", highscores != undefined);
     }
     async function retrieveOrders() {
         // console.log("Asking DB about Orders ", orders.find());

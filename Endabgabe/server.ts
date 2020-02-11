@@ -4,16 +4,24 @@ import * as Mongo from "mongodb";
 
 export namespace endabgabe {
     let highscores: Mongo.Collection;
-    let databaseURL: string;
+    let databaseURL: string = "mongodb+srv://merdi:<password>@cluster0-mklga.mongodb.net/test?retryWrites=true&w=majority";
 
-    let dbName: string = "dbName";
-    let dbCollection: string = "dbCollection";
-    databaseURL = "mongodb+srv://merdi:<password>@cluster0-mklga.mongodb.net/test?retryWrites=true&w=majority";
+    let dbName: string = "Game";
+    let dbCollection: string = "Highscores";
+    connectToDatabase(databaseURL);
 
     let port: string | number | undefined = process.env.PORT;
     if (port == undefined)
         port = 5001;
     startServer(port);
+
+    async function connectToDatabase(_url: string): Promise<void> {
+        let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect();
+        highscores = mongoClient.db(dbName).collection(dbCollection);
+        console.log("Database connection ", highscores != undefined);
+    }
 
     function startServer(_port: number | string): void {
         let server: HTTP.Server = HTTP.createServer();
@@ -44,6 +52,7 @@ export namespace endabgabe {
             // }
             let jsonString: string = JSON.stringify(url.query);
             _response.write(jsonString);
+            // storeHighscores(url.query);
         }
 
 
@@ -52,14 +61,8 @@ export namespace endabgabe {
 
         _response.end();
     }
-    async function connectToDatabase(_url: string): Promise<void> {
-        let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
-        await mongoClient.connect();
-        highscores = mongoClient.db(dbName).collection(dbCollection);
-        console.log("Database connection ", highscores != undefined);
-    }
-    
+
+
     async function retrieveOrders(): Promise<any[] | string> {
         // console.log("Asking DB about Orders ", orders.find());
         let cursor: Mongo.Cursor = await highscores.find(); //cursor festlegen, mit dem auf ELemente gezeigt werden
