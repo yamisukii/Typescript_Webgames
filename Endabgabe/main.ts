@@ -7,7 +7,7 @@ namespace endabgabe {
     export let snowball: Snow;
     export let food: Food;
     export let highscore: number = 500;
-    export let timer: number = 3;
+    export let timer: number = 30;
     export let div: HTMLDivElement;
     export let time: HTMLElement;
     export let highScorer: HTMLElement;
