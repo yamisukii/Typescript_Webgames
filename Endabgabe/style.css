@@ -1,0 +1,37 @@
+#main{
+    /* display:block;
+    width:83%;
+    height:100%; */
+}
+
+div> p{
+    position: relative;
+    float: left;
+    font-size: 25px;
+    margin-top: -2px;
+    margin-right: 15px;
+}
+button{
+    position: absolute; 
+    top:250px; 
+    left:36%;
+}
+#save{
+    position: absolute; 
+    top:250px; 
+    left:43%;
+}
+input{
+    position: absolute; 
+    top:210px; 
+    left:33%;
+}
+
+canvas {
+    position: absolute;
+    top:5%;
+    left:17%;
+     border:3px solid black;
+
+    
+}

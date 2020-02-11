@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node C:/Users/stefa/Documents/4.Semester/EIA2/Repistory/L06_Server/server.js"
+    "start": "node C:/Users/Stefan/Documents/Uni/4.Semester/EIA2/EIA2/Endabgabe/server.js"
   },
   "repository": {
     "type": "git",
