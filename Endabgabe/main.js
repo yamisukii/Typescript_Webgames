@@ -6,7 +6,7 @@ var endabgabe;
     endabgabe.highscore = 500;
     endabgabe.timer = 3;
     endabgabe.hungryBirds = [];
-    endabgabe.url = "http://localhost:5002";
+    endabgabe.url = "https://localhost:5002";
     function handleLoad() {
         endabgabe.canvas = document.querySelector("canvas");
         endabgabe.crc2 = endabgabe.canvas.getContext("2d");

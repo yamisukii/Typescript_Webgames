@@ -16,7 +16,7 @@ namespace endabgabe {
     export let buttonStart: HTMLButtonElement;
     export let buttonHs: HTMLButtonElement;
     export let form: HTMLFormElement;
-    export let url: string = "http://localhost:5002";
+    export let url: string = "https://localhost:5002";
 
 
     function handleLoad(): void {
