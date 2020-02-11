@@ -8,7 +8,7 @@ export namespace endabgabe {
 
     let port: string | number | undefined = process.env.PORT;
     if (port == undefined)
-        port = 5002;
+        port = 5001;
     console.log(port);
 
     server.listen(port);

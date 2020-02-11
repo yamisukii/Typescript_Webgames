@@ -7,7 +7,7 @@ var endabgabe;
     let server = HTTP.createServer();
     let port = process.env.PORT;
     if (port == undefined)
-        port = 5002;
+        port = 5001;
     console.log(port);
     server.listen(port);
     server.addListener("request", handleRequest);
