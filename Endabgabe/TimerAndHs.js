@@ -27,6 +27,7 @@ var endabgabe;
     function safeHighscore(_highscore) {
         endabgabe.time.remove();
         endabgabe.moveables = [];
+        endabgabe.hungryBirds = [];
         endabgabe.form = document.createElement("form");
         endabgabe.div.appendChild(endabgabe.form);
         let input = document.createElement("input");

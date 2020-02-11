@@ -25,6 +25,7 @@ namespace endabgabe {
         time.remove();
 
         moveables = [];
+        hungryBirds = [];
         form = <HTMLFormElement>document.createElement("form");
         div.appendChild(form);
 
