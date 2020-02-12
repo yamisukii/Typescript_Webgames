@@ -20,38 +20,28 @@ namespace endabgabe {
         buttonHs.remove();
         buttonStart.remove();
     }
-    
+
     function safeHighscore(_highscore: number): void {
         time.remove();
 
         moveables = [];
         hungryBirds = [];
-        form = <HTMLFormElement>document.createElement("form");
-        div.appendChild(form);
 
-        let input: HTMLInputElement = <HTMLInputElement>document.createElement("input");
-        input.placeholder = "Name";
-        input.setAttribute("class", "nes-input");
-        form.appendChild(input);
-        let buttonSend: HTMLButtonElement = <HTMLButtonElement>document.createElement("button");
-        buttonSend.setAttribute("type", "button");
-        buttonSend.setAttribute("class", "nes-btn is-primary");
-        buttonSend.setAttribute("id", "save");
-        buttonSend.innerHTML = "Save";
-        form.appendChild(buttonSend);
-        buttonSend.addEventListener("click", sendHs);
+        console.log("end");
+        let insertedname: any = prompt("Your Score: " + highscore + "\n Enter your name.");
+        if (insertedname != null) {
+            sendHs(insertedname, highscore);
+
+        }
 
 
     }
 
-    async function sendHs(_event: Event): Promise<void> {
+    async function sendHs(_name: string, _highscore: number): Promise<void> {
         console.log("send Highscore");
-        let formData: FormData = new FormData(form);
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        let response: Response = await fetch(url + "?" + query.toString());
-        let responseText: string = await response.text();
-        alert(responseText);
-
+        let query: string = "name=" + _name + "&score=" + _highscore;
+        let response: Response = await fetch(url + "?" + query);
+        console.log(response);
     }
 
 

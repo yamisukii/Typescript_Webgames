@@ -28,27 +28,17 @@ var endabgabe;
         endabgabe.time.remove();
         endabgabe.moveables = [];
         endabgabe.hungryBirds = [];
-        endabgabe.form = document.createElement("form");
-        endabgabe.div.appendChild(endabgabe.form);
-        let input = document.createElement("input");
-        input.placeholder = "Name";
-        input.setAttribute("class", "nes-input");
-        endabgabe.form.appendChild(input);
-        let buttonSend = document.createElement("button");
-        buttonSend.setAttribute("type", "button");
-        buttonSend.setAttribute("class", "nes-btn is-primary");
-        buttonSend.setAttribute("id", "save");
-        buttonSend.innerHTML = "Save";
-        endabgabe.form.appendChild(buttonSend);
-        buttonSend.addEventListener("click", sendHs);
+        console.log("end");
+        let insertedname = prompt("Your Score: " + endabgabe.highscore + "\n Enter your name.");
+        if (insertedname != null) {
+            sendHs(insertedname, endabgabe.highscore);
+        }
     }
-    async function sendHs(_event) {
+    async function sendHs(_name, _highscore) {
         console.log("send Highscore");
-        let formData = new FormData(endabgabe.form);
-        let query = new URLSearchParams(formData);
-        let response = await fetch(endabgabe.url + "?" + query.toString());
-        let responseText = await response.text();
-        alert(responseText);
+        let query = "name=" + _name + "&score=" + _highscore;
+        let response = await fetch(endabgabe.url + "?" + query);
+        console.log(response);
     }
 })(endabgabe || (endabgabe = {}));
 //# sourceMappingURL=TimerAndHs.js.map
