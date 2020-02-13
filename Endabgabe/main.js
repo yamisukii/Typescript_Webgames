@@ -4,7 +4,7 @@ var endabgabe;
     window.addEventListener("load", handleLoad);
     endabgabe.moveables = [];
     endabgabe.highscore = 500;
-    endabgabe.timer = 30;
+    endabgabe.timer = 1;
     endabgabe.hungryBirds = [];
     endabgabe.url = "https://milchstrasse.herokuapp.com/";
     function handleLoad() {

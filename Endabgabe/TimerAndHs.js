@@ -37,6 +37,7 @@ var endabgabe;
     async function sendHs(_name, _highscore) {
         console.log("send Highscore");
         let query = "name=" + _name + "&score=" + _highscore;
+        console.log(query);
         let response = await fetch(endabgabe.url + "?" + query);
         console.log(response);
     }

@@ -40,6 +40,7 @@ namespace endabgabe {
     async function sendHs(_name: string, _highscore: number): Promise<void> {
         console.log("send Highscore");
         let query: string = "name=" + _name + "&score=" + _highscore;
+        console.log(query);
         let response: Response = await fetch(url + "?" + query);
         console.log(response);
     }
