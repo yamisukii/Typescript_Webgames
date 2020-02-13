@@ -31,8 +31,8 @@ namespace endabgabe {
         for (let index = 0; index < sortedJson.length; index++) {
             output += sortedJson[index].name + " - " + sortedJson[index].score + "\n";
         }
-        let scores: HTMLDivElement = <HTMLDivElement>document.querySelector("div#showScores");
-        scores.innerText = output;
+        
+        div.innerText = output;
     }
 
     function safeHighscore(_highscore: number): void {

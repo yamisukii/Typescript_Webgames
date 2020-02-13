@@ -34,8 +34,7 @@ var endabgabe;
         for (let index = 0; index < sortedJson.length; index++) {
             output += sortedJson[index].name + " - " + sortedJson[index].score + "\n";
         }
-        let scores = document.querySelector("div#showScores");
-        scores.innerText = output;
+        endabgabe.div.innerText = output;
     }
     endabgabe.showHighscore = showHighscore;
     function safeHighscore(_highscore) {
