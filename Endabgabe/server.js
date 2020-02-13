@@ -31,8 +31,8 @@ var endabgabe;
         console.log("Was geht");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        _response.write("HalliHallo");
-        _response.write(port);
+        _response.write("HalliHallo" + "</br>");
+        _response.write("Port: " + port);
         if (_request.url) {
             let url = Url.parse(_request.url, true);
             // for (let key in url.query) {
