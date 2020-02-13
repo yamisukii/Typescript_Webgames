@@ -32,7 +32,7 @@ namespace endabgabe {
             output += sortedJson[index].name + " - " + sortedJson[index].score + "\n";
         }
         
-        div.innerText = output;
+        div.innerText = "Brooooo";
     }
 
     function safeHighscore(_highscore: number): void {
