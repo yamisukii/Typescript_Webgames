@@ -19,9 +19,23 @@ var endabgabe;
         }
     }
     endabgabe.loadedTime = loadedTime;
-    function showHighscore() {
+    async function showHighscore() {
         endabgabe.buttonHs.remove();
         endabgabe.buttonStart.remove();
+        console.log("Highscores ausgeben");
+        let query = "command=retrieve";
+        let response = await fetch(endabgabe.url + "?" + query);
+        let responseJson = await response.json();
+        for (let index = 0; index < responseJson.length; index++) {
+            delete responseJson[index]["_id"];
+        }
+        let sortedJson = responseJson.sort(({ score: aScore }, { score: bScore }) => bScore - aScore);
+        let output = "";
+        for (let index = 0; index < sortedJson.length; index++) {
+            output += sortedJson[index].name + " - " + sortedJson[index].score + "\n";
+        }
+        let scores = document.querySelector("div#showScores");
+        scores.innerText = output;
     }
     endabgabe.showHighscore = showHighscore;
     function safeHighscore(_highscore) {

@@ -16,9 +16,23 @@ namespace endabgabe {
 
         }
     }
-    export function showHighscore(): void {
+    export async function showHighscore(): Promise<void> {
         buttonHs.remove();
         buttonStart.remove();
+        console.log("Highscores ausgeben");
+        let query: string = "command=retrieve";
+        let response: Response = await fetch(url + "?" + query);
+        let responseJson: string[] = await response.json();
+        for (let index = 0; index < responseJson.length; index++) {
+            delete responseJson[index]["_id"];
+        }
+        let sortedJson = responseJson.sort(({ score: aScore }: string, { score: bScore }: string) => bScore - aScore);
+        let output = "";
+        for (let index = 0; index < sortedJson.length; index++) {
+            output += sortedJson[index].name + " - " + sortedJson[index].score + "\n";
+        }
+        let scores: HTMLDivElement = <HTMLDivElement>document.querySelector("div#showScores");
+        scores.innerText = output;
     }
 
     function safeHighscore(_highscore: number): void {
