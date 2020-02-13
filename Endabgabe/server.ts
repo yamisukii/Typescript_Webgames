@@ -6,22 +6,15 @@ export namespace endabgabe {
     let highscores: Mongo.Collection;
     let databaseURL: string = "mongodb+srv://merdi:<password>@cluster0-mklga.mongodb.net/test?retryWrites=true&w=majority";
 
-    let dbName: string = "Game";
+    let dbName: string = "Database";
     let dbCollection: string = "Highscores";
-    connectToDatabase(databaseURL);
 
     let port: string | number | undefined = process.env.PORT;
     if (port == undefined)
         port = 5001;
     startServer(port);
+    connectToDatabase(databaseURL);
 
-    async function connectToDatabase(_url: string): Promise<void> {
-        let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
-        await mongoClient.connect();
-        highscores = mongoClient.db(dbName).collection(dbCollection);
-        console.log("Database connection ", highscores != undefined);
-    }
 
     function startServer(_port: number | string): void {
         let server: HTTP.Server = HTTP.createServer();
@@ -34,16 +27,24 @@ export namespace endabgabe {
 
     }
 
+    async function connectToDatabase(_url: string): Promise<void> {
+        let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect();
+        highscores = mongoClient.db(dbName).collection(dbCollection);
+        console.log("Database connection ", highscores != undefined);
+    }
 
 
-    function handleRequest(_request: HTTP.IncomingMessage, _response: HTTP.ServerResponse): void {
+
+    async function handleRequest(_request: HTTP.IncomingMessage, _response: HTTP.ServerResponse): Promise<void> {
         console.log("Was geht");
-        
+
 
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.write("HalliHallo" + "</br>");
-        _response.write("Port: " + port);
+        _response.write("Port: " + port + "</br>");
 
 
         if (_request.url) {
@@ -51,18 +52,28 @@ export namespace endabgabe {
             // for (let key in url.query) {
             //     _response.write(key + ": " + url.query[key] + "<br/>");
 
-            // }
-            let jsonString: string = JSON.stringify(url.query);
-            _response.write(jsonString);
-            // storeHighscores(url.query);
+            // } 
+            if (url.query["command"] == "retrieve") {
+                let report: any[] | string = await retrieveOrders();
+                if (report == "Please try again later")
+                    _response.write(report);
+                else
+                    _response.write(JSON.stringify(report));
+            }
+
+
+            else {
+                let jsonString: string = JSON.stringify(url.query);
+                _response.write(jsonString);
+                highscores.insert(url.query);
+                
+
+            }
         }
-
-
-
-
 
         _response.end();
     }
+
 
 
     async function retrieveOrders(): Promise<any[] | string> {
