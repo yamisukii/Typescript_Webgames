@@ -6,7 +6,7 @@ const Mongo = require("mongodb");
 var endabgabe;
 (function (endabgabe) {
     let highscores;
-    let databaseURL = "mongodb+srv://merdi:<password>@cluster0-mklga.mongodb.net/test?retryWrites=true&w=majority";
+    let databaseURL = "mongodb+srv://merdi:187@cluster0-mklga.mongodb.net/test?retryWrites=true&w=majority";
     let dbName = "Database";
     let dbCollection = "Highscores";
     let port = process.env.PORT;
@@ -28,7 +28,7 @@ var endabgabe;
         console.log("Database connection ", highscores != undefined);
     }
     async function handleRequest(_request, _response) {
-        console.log("Was geht");
+        console.log("Request kam rein");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.write("HalliHallo" + "</br>");

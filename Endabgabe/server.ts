@@ -4,7 +4,7 @@ import * as Mongo from "mongodb";
 
 export namespace endabgabe {
     let highscores: Mongo.Collection;
-    let databaseURL: string = "mongodb+srv://merdi:<password>@cluster0-mklga.mongodb.net/test?retryWrites=true&w=majority";
+    let databaseURL: string = "mongodb+srv://merdi:187@cluster0-mklga.mongodb.net/test?retryWrites=true&w=majority";
 
     let dbName: string = "Database";
     let dbCollection: string = "Highscores";
@@ -38,7 +38,7 @@ export namespace endabgabe {
 
 
     async function handleRequest(_request: HTTP.IncomingMessage, _response: HTTP.ServerResponse): Promise<void> {
-        console.log("Was geht");
+        console.log("Request kam rein");
 
 
         _response.setHeader("content-type", "text/html; charset=utf-8");
