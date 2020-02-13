@@ -9,7 +9,7 @@ namespace endabgabe {
             timer--;
             time.innerHTML = "Time: " + timer.toString();
             div.appendChild(time);
-            highscore -= 5;
+            highscore -= 25;
             highScorer.innerHTML = "Highscore: " + highscore.toString();
             div.appendChild(highScorer);
             // console.log(highscore);
@@ -17,9 +17,9 @@ namespace endabgabe {
         }
     }
     export async function showHighscore(): Promise<void> {
-        buttonHs.remove();
-        buttonStart.remove();
-        console.log("Highscores ausgeben");
+        // buttonHs.remove();
+        // buttonStart.remove();
+        // console.log("Highscores ausgeben");
         let query: string = "command=retrieve";
         let response: Response = await fetch(url + "?" + query);
         let responseJson: string[] = await response.json();
@@ -32,7 +32,8 @@ namespace endabgabe {
             output += sortedJson[index].name + " - " + sortedJson[index].score + "\n";
         }
         
-        div.innerText = "Brooooo";
+
+        div.innerText = output;
     }
 
     function safeHighscore(_highscore: number): void {

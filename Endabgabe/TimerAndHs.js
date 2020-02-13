@@ -12,7 +12,7 @@ var endabgabe;
             endabgabe.timer--;
             endabgabe.time.innerHTML = "Time: " + endabgabe.timer.toString();
             endabgabe.div.appendChild(endabgabe.time);
-            endabgabe.highscore -= 5;
+            endabgabe.highscore -= 25;
             endabgabe.highScorer.innerHTML = "Highscore: " + endabgabe.highscore.toString();
             endabgabe.div.appendChild(endabgabe.highScorer);
             // console.log(highscore);
@@ -20,9 +20,9 @@ var endabgabe;
     }
     endabgabe.loadedTime = loadedTime;
     async function showHighscore() {
-        endabgabe.buttonHs.remove();
-        endabgabe.buttonStart.remove();
-        console.log("Highscores ausgeben");
+        // buttonHs.remove();
+        // buttonStart.remove();
+        // console.log("Highscores ausgeben");
         let query = "command=retrieve";
         let response = await fetch(endabgabe.url + "?" + query);
         let responseJson = await response.json();
@@ -34,7 +34,7 @@ var endabgabe;
         for (let index = 0; index < sortedJson.length; index++) {
             output += sortedJson[index].name + " - " + sortedJson[index].score + "\n";
         }
-        endabgabe.div.innerText = "Brooooo";
+        endabgabe.div.innerText = output;
     }
     endabgabe.showHighscore = showHighscore;
     function safeHighscore(_highscore) {
