@@ -23,15 +23,15 @@ namespace endabgabe {
         let query: string = "command=retrieve";
         let response: Response = await fetch(url + "?" + query);
         let responseJson: string[] = await response.json();
-        for (let index = 0; index < responseJson.length; index++) {
+        for (let index: number = 0; index < responseJson.length; index++) {
             delete responseJson[index]["_id"];
         }
-        let sortedJson = responseJson.sort(({ score: aScore }: string, { score: bScore }: string) => bScore - aScore);
-        let output = "";
-        for (let index = 0; index < sortedJson.length; index++) {
+        let sortedJson: any = responseJson.sort(({ highscore: aScore }: string, { highscore: bScore }: string) => bScore - aScore);
+        let output: string = "";
+        for (let index: number = 0; index < sortedJson.length; index++) {
             output += sortedJson[index].name + " - " + sortedJson[index].score + "\n";
         }
-        
+
 
         div.innerText = output;
     }

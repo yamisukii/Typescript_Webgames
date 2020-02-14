@@ -29,7 +29,7 @@ var endabgabe;
         for (let index = 0; index < responseJson.length; index++) {
             delete responseJson[index]["_id"];
         }
-        let sortedJson = responseJson.sort(({ score: aScore }, { score: bScore }) => bScore - aScore);
+        let sortedJson = responseJson.sort(({ highscore: aScore }, { highscore: bScore }) => bScore - aScore);
         let output = "";
         for (let index = 0; index < sortedJson.length; index++) {
             output += sortedJson[index].name + " - " + sortedJson[index].score + "\n";
