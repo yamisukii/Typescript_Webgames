@@ -20,9 +20,9 @@ var endabgabe;
     }
     endabgabe.loadedTime = loadedTime;
     async function showHighscore() {
-        // buttonHs.remove();
-        // buttonStart.remove();
-        // console.log("Highscores ausgeben");
+        endabgabe.buttonHs.remove();
+        endabgabe.buttonStart.remove();
+        console.log("Highscores ausgeben");
         let query = "command=retrieve";
         let response = await fetch(endabgabe.url + "?" + query);
         let responseJson = await response.json();

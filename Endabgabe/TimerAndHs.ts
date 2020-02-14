@@ -17,9 +17,9 @@ namespace endabgabe {
         }
     }
     export async function showHighscore(): Promise<void> {
-        // buttonHs.remove();
-        // buttonStart.remove();
-        // console.log("Highscores ausgeben");
+        buttonHs.remove();
+        buttonStart.remove();
+        console.log("Highscores ausgeben");
         let query: string = "command=retrieve";
         let response: Response = await fetch(url + "?" + query);
         let responseJson: string[] = await response.json();
