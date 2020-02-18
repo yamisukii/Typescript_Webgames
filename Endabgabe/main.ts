@@ -7,7 +7,7 @@ namespace endabgabe {
     export let snowball: Snow;
     export let food: Food;
     export let highscore: number = 500;
-    export let timer: number = 1;
+    export let timer: number = 30;
     export let div: HTMLDivElement;
     export let time: HTMLElement;
     export let highScorer: HTMLElement;
@@ -103,11 +103,11 @@ namespace endabgabe {
         let hotspot: Vector = new Vector(_event.offsetX, _event.offsetY);
         console.log(hotspot);
         if (hotspot) {
-            window.setTimeout(shootSnowball, 350, hotspot);
+            window.setTimeout(createSnowball, 350, hotspot);
         }
     }
 
-    function shootSnowball(_hotspot: Vector): void {
+    function createSnowball(_hotspot: Vector): void {
 
         let birdHit: Bird | null = getBirdHit(_hotspot);
         console.log(birdHit);

@@ -4,7 +4,7 @@ var endabgabe;
     window.addEventListener("load", handleLoad);
     endabgabe.moveables = [];
     endabgabe.highscore = 500;
-    endabgabe.timer = 1;
+    endabgabe.timer = 30;
     endabgabe.hungryBirds = [];
     endabgabe.url = "https://milchstrasse.herokuapp.com/";
     function handleLoad() {
@@ -78,10 +78,10 @@ var endabgabe;
         let hotspot = new endabgabe.Vector(_event.offsetX, _event.offsetY);
         console.log(hotspot);
         if (hotspot) {
-            window.setTimeout(shootSnowball, 350, hotspot);
+            window.setTimeout(createSnowball, 350, hotspot);
         }
     }
-    function shootSnowball(_hotspot) {
+    function createSnowball(_hotspot) {
         let birdHit = getBirdHit(_hotspot);
         console.log(birdHit);
         if (birdHit) {

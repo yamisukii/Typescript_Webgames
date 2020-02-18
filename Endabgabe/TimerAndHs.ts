@@ -9,7 +9,7 @@ namespace endabgabe {
             timer--;
             time.innerHTML = "Time: " + timer.toString();
             div.appendChild(time);
-            highscore -= 25;
+            highscore -= 15;
             highScorer.innerHTML = "Highscore: " + highscore.toString();
             div.appendChild(highScorer);
             // console.log(highscore);

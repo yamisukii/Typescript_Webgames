@@ -12,7 +12,7 @@ var endabgabe;
             endabgabe.timer--;
             endabgabe.time.innerHTML = "Time: " + endabgabe.timer.toString();
             endabgabe.div.appendChild(endabgabe.time);
-            endabgabe.highscore -= 25;
+            endabgabe.highscore -= 15;
             endabgabe.highScorer.innerHTML = "Highscore: " + endabgabe.highscore.toString();
             endabgabe.div.appendChild(endabgabe.highScorer);
             // console.log(highscore);
