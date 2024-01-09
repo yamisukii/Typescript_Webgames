@@ -15,7 +15,7 @@ export namespace L06_Server {
     server.addListener("request", handleRequest);
 
     function handleRequest(_request: HTTP.IncomingMessage, _response: HTTP.ServerResponse): void {
-        console.log("GAylord");
+        console.log("server request!");
 
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
